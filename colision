@@ -1,0 +1,46 @@
+
+
+int radius = 40; 
+float x = 50; 
+float speed = 2; 
+float speedY = 3;
+int direction = 1; 
+int direccionY= 1;
+float y = 70;
+float r,g,b;
+
+void setup() { 
+  size(400, 400); 
+  ellipseMode(RADIUS);  
+} 
+void draw() { 
+  background(0); 
+  x = x+speed * direction; 
+  y =y+speedY *direccionY ;
+  r = random(255);
+  g = random(255);
+  b = random(255);
+  
+  if ((x > width-radius) || (x < radius)) {
+    direction = -direction;
+    fill(r,g,b);
+  }
+  if((y>height-radius) || (y<radius)){
+    direccionY = -direccionY;
+    fill(r,g,b);
+  }
+  if (direction == 1 ) {    
+    arc(x, y, radius, radius, 0.52, 5.76);
+    
+  } else {    
+    arc(x, y, radius, radius, 3.67, 8.9); 
+    
+  }
+  if (direccionY == 1) {    
+    arc(x, y, radius, radius, 8.9, 3.67); 
+    
+  } else {    
+    arc(x, y, radius, radius, 5.76, 0.52);
+    
+  }
+}
